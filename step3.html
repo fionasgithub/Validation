@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+    <title>Validation</title>
+</head>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .step1-title {
+        font-weight: lighter;
+    }
+
+    .progressbar {
+        width: 260px;
+        height: 106px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .now {
+        transition: all 0.5s;
+        border: 2px solid #007bff;
+    }
+
+    /* circle */
+
+    li {
+        align-self: center;
+        position: relative;
+        display: flex;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        background-color: #FFFFFF;
+        border: 2px solid #BEE1FF;
+        border-radius: 16px;
+    }
+
+    /* now circle */
+
+    .now::before {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        margin-top: -4px;
+        left: 50%;
+        margin-left: -4px;
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: #007bff;
+        border-radius: 8px;
+    }
+
+    /* checked icon */
+
+    li i {
+        align-self: center;
+        position: relative;
+        display: flex;
+        left: -1.65px;
+    }
+
+    /* checked line */
+
+    li:nth-child(1)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        left: 100%;
+        z-index: 2;
+        content: "";
+        width: 53px;
+        border: 1px solid #007bff;
+    }
+
+    /* checked line */
+
+    li:nth-child(2)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        left: 100%;
+        z-index: 2;
+        content: "";
+        width: 53px;
+        border: 1px solid #007bff;
+    }
+
+    /* line */
+
+    li:nth-child(3)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        right: 100%;
+        z-index: -1;
+        content: "";
+        width: 54px;
+        border: 1px solid #BEE1FF;
+    }
+
+    /* line */
+
+    li:nth-child(4)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        right: 100%;
+        z-index: -1;
+        content: "";
+        width: 54px;
+        border: 1px solid #BEE1FF;
+    }
+
+    .upload-box {
+        margin-top: 16px;
+        border: 2px solid #000000;
+        color: #9B9B9B;
+        border-radius: 8px;
+        width: 450px;
+        height: 140px;
+    }
+
+    .upload-box>i {
+        width: 58px;
+        height: 45px;
+        font-size: 48px;
+        text-align: center;
+        margin-top: 44px;
+        margin-left: 69px;
+    }
+
+    .upload-box>div {
+        width: 235px;
+        height: 48px;
+        margin-top: 44px;
+        margin-left: 20px;
+        display: inline-block;
+    }
+
+    .upload-box+input {
+        width: 450px;
+        height: 140px;
+        position: absolute;
+        top: 16px;
+        opacity: 0;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-3 bg-primary p-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <ul class="progressbar text-primary">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                    </li>
+                    <li class="now"></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 class="step1-title">Update Profile Picture</h1>
+                <p class="step1-title">We wanna know you more!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <form>
+                    <div class="form-row pb-4">
+                        <label>
+                            <div class="upload-box">
+                                <i class="fas fa-images"></i>
+                                <div>
+                                    UPLOAD UP TO 3 PHOTOS
+                                    <br> MAX SIZE: 150*150px
+                                </div>
+                            </div>
+                            <input type="file" name="Photos" accept="image/*" multiple>
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" disabled>SUBMIT & NEXT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
