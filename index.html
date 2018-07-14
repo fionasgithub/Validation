@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+  <title>Validation</title>
+</head>
+
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .step1-title {
+    font-weight: lighter;
+  }
+
+  .progressbar {
+    width: 260px;
+    height: 106px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .now {
+    transition: all 0.5s;
+    border: 2px solid #0275D8;
+  }
+
+  li {
+    align-self: center;
+    position: relative;
+    display: flex;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    background-color: #FFFFFF;
+    border: 2px solid #BEE1FF;
+    border-radius: 16px;
+  }
+
+  .now::before {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -4px;
+    left: 50%;
+    margin-left: -4px;
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #0275D8;
+    border-radius: 8px;
+  }
+
+  li:nth-child(2n)::after {
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    right: 100%;
+    z-index: -1;
+    content: "";
+    width: 54px;
+    height: 2px;
+    background: #BEE1FF;
+  }
+
+  li:nth-child(3)::after {
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    right: 100%;
+    z-index: -1;
+    content: "";
+    width: 54px;
+    height: 2px;
+    background: #BEE1FF;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 offset-sm-3 bg-primary p-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 offset-sm-3">
+        <ul class="progressbar">
+          <li class="now"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-12">
+        <h1 class="step1-title">Create Account</h1>
+        <p class="step1-title">Glad to see you here!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 offset-sm-3">
+        <form>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group pb-4">
+            <label for="exampleInputPassword2">Comfirm Password</label>
+            <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Comfirm Password">
+          </div>
+          <button type="button" class="btn btn-primary btn-lg btn-block" disabled>SUBMIT & NEXT</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
