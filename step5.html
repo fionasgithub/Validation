@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+    <title>Validation</title>
+</head>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .step1-title {
+        font-weight: lighter;
+    }
+
+    .progressbar {
+        width: 260px;
+        height: 106px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    /* circle */
+
+    li {
+        align-self: center;
+        position: relative;
+        display: flex;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        background-color: #FFFFFF;
+        border: 2px solid #BEE1FF;
+        border-radius: 16px;
+    }
+
+    /* checked icon */
+
+    li i {
+        align-self: center;
+        position: relative;
+        display: flex;
+        left: -1.65px;
+    }
+
+    /* checked line */
+
+    li:nth-child(1)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        left: 100%;
+        z-index: 2;
+        content: "";
+        width: 53px;
+        border: 1px solid #007bff;
+    }
+
+    /* checked line */
+
+    li:nth-child(2)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        left: 100%;
+        z-index: 2;
+        content: "";
+        width: 53px;
+        border: 1px solid #007bff;
+    }
+
+    /* line */
+
+    li:nth-child(3)::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        left: 100%;
+        z-index: 2;
+        content: "";
+        width: 53px;
+        border: 1px solid #007bff;
+    }
+
+    .smile {
+        width: 450px;
+        height: 230px;
+        margin-top: 8px;
+    }
+
+    .smile>i {
+        width: 230px;
+        font-size: 230px;
+        text-align: center;
+        color: #BEE1FF;
+    }
+
+    .redirected {
+        font-size: 20px;
+        line-height: 25px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-3 bg-primary p-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <ul class="progressbar text-primary">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 class="step1-title">Congratulations</h1>
+                <p class="step1-title">Now you’re one of us!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-sm-3 text-center">
+                <div class="smile">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <div class="mt-4 text-primary redirected">
+                    <em>Redirected to homepage after 5 seconds…</em>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
